@@ -1,0 +1,73 @@
+function doGet(e){
+  Logger.log("--- doGet ---");
+ 
+ var temp = "",
+     hum = "";
+ 
+  try {
+ 
+    // this helps during debuggin
+    if (e == null){e={}; e.parameters = {temp:"temperature-test",hum:"humidity-test",soil:"soil-test",rain:"rain-test",water:"water-test"};}
+ 
+    temp = e.parameters.temp;
+    hum = e.parameters.hum;
+    soil = e.parameters.soil;
+    rain = e.parameters.rain;
+    water = e.parameters.water;
+ 
+    // save the data to spreadsheet
+    save_data(temp, hum,soil,rain,water);
+ 
+ 
+    return ContentService.createTextOutput("Wrote:\n  temp: " + temp + "\n  hum: " + hum + "\n  soil: " + soil +"\n  rain: " + rain +"\n  water: " + water);
+ 
+  } catch(error) { 
+    Logger.log(error);    
+    return ContentService.createTextOutput("oops...." + error.message 
+                                            + "\n" + new Date() 
+                                            + "\ntemp: " + temp +
+                                            + "\nhum: " + hum
+                                            + "\nsoil: " + soil
+                                            + "\nrain: " + rain
+                                            + "\nwater: " + water);
+  }  
+}
+ 
+// Method to save given data to a sheet
+function save_data(temp, hum,soil,rain,water){
+  Logger.log("--- save_data ---"); 
+ 
+ 
+  try {
+    var dateTime = new Date();
+ 
+    // Paste the URL of the Google Sheets starting from https thru /edit
+    // For e.g.: https://docs.google.com/..../edit 
+    var ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/xxxxxx/edit");
+    var dataLoggerSheet = ss.getSheetByName("esp32_data");
+ 
+ 
+    // Get last edited row from DataLogger sheet
+    var row = dataLoggerSheet.getLastRow() + 1;
+ 
+ 
+    // Start Populating the data
+    dataLoggerSheet.getRange("A" + row).setValue(row -1); // ID
+    dataLoggerSheet.getRange("B" + row).setValue(dateTime); // date
+    dataLoggerSheet.getRange("C" + row).setValue(temp); // temp
+    dataLoggerSheet.getRange("D" + row).setValue(hum); // hum
+    dataLoggerSheet.getRange("E" + row).setValue(soil); // soil
+    dataLoggerSheet.getRange("F" + row).setValue(rain); // rain
+    dataLoggerSheet.getRange("G" + row).setValue(water); // rain
+ 
+    // Update summary sheet
+    summarySheet.getRange("B1").setValue(dateTime); // Last modified date
+    // summarySheet.getRange("B2").setValue(row - 1); // Count 
+  }
+ 
+  catch(error) {
+    Logger.log(JSON.stringify(error));
+  }
+ 
+  Logger.log("--- save_data end---"); 
+}
