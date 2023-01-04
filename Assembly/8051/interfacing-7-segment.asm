@@ -16,6 +16,6 @@ START:	SETB P3.3			; |
 	JMP START			; jump back to start
 
 ; a crude delay
-DELAY: MOV R0, #20
-			DJNZ R0,DELAY
-			RET
+DELAY: 	MOV R0, #20
+		DJNZ R0,DELAY
+		RET
