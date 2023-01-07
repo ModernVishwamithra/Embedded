@@ -13,6 +13,6 @@
 
 1. [Echoing the Switches to the LEDs](./8051/interfacing_button.asm)
 
-2. [Interfacing 7-segment display](./8051/interfacing-7-segment.asm)
+2. [Multiplexing the 7-segment Displays](./8051/interfacing-7-segment.asm)
 
 3. [Binary Pattern on the Port 1 LEDs](./8051/interfacing_LEDs.asm)

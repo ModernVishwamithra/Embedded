@@ -1,3 +1,7 @@
+; This program multiplexes the number 1234
+; on the four 7-segment displays.
+
+; Note: a logic 0 lights a display segment.
 
 START:	SETB P3.3			; |
 	SETB P3.4			; | enable display 3
