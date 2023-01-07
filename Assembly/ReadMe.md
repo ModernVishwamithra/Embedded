@@ -2,7 +2,10 @@
 
 ## 8051 Assembly language programs
 
+[8051 Open source simulator](http://www.edsim51.com/targetBoard.html)
+
 ![Interfacing Diagram of 8051 microconroller](http://www.edsim51.com/8051simulator/images/logicDiagrams/logicDiagram.png)
+
 ---------
 ### Basic
 
