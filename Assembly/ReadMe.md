@@ -2,7 +2,7 @@
 
 ## 8051 Assembly language programs
 
-[!Interfacing Diagram of 8051 microconroller](http://www.edsim51.com/8051simulator/images/logicDiagrams/logicDiagram.png)
+![Interfacing Diagram of 8051 microconroller](http://www.edsim51.com/8051simulator/images/logicDiagrams/logicDiagram.png)
 ---------
 ### Basic
 
