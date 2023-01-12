@@ -19,3 +19,5 @@
 2. [Multiplexing the 7-segment Displays](./8051/interfacing-7-segment.asm)
 
 3. [Binary Pattern on the Port 1 LEDs](./8051/interfacing_LEDs.asm)
+
+4. [Sending ABC on LCD](./8051/interfacing_LCD.asm)
